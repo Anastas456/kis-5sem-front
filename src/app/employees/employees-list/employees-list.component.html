@@ -1,0 +1,36 @@
+<div class="container mt-2">
+    <h3>Сотрудники</h3>
+  
+    
+    <div class="table-responsive">
+      <table class="table">
+          <thead>
+              <tr>
+              <!-- <th scope="col">Id</th> -->
+              <th scope="col">Имя</th>
+              
+              <th scope="col" class="text-center">
+                  <button class="btn btn-success"
+                  (click)="onAddEmployee()">              
+                      Добавить сотрудника
+                  </button>
+              </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of empoloyees">
+              <td>{{item.surname}} {{item.name}} {{item.patronymic}}</td>
+  
+              <td class="text-center">
+                  <button class="btn btn-primary mr-3"
+                  (click)="onDetailEmployee(item.id)"
+                  >
+                      Подробнее
+                  </button>
+              </td> 
+              
+              </tr>
+          </tbody>
+      </table> 
+    </div>
+  </div> 

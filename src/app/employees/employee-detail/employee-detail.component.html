@@ -1,0 +1,134 @@
+<div class="container mt-2"> 
+    <div class="container-fluid">
+      <form [formGroup]="employeeForm">
+        
+        <div class="form-group">
+          <label for="employeesurname">Фамилия</label>
+          <input
+            type="text"
+            class="form-control"
+            id="employeesurname"
+            placeholder="Фамилия"
+            formControlName="surname"
+          />
+          <div class="alert alert-danger" 
+          *ngIf="employeeForm.controls['surname'].invalid && employeeForm.controls['surname'].touched">
+              Не указана фамилия
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="employeename">Имя</label>
+          <input
+            type="text"
+            class="form-control"
+            id="employeename"
+            placeholder="Имя"
+            formControlName="name"
+          />
+          <div class="alert alert-danger" 
+            *ngIf="employeeForm.controls['name'].invalid && employeeForm.controls['name'].touched">
+              Не указано имя
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="employeepatronymic">Отчество</label>
+          <input
+            type="text"
+            class="form-control"
+            id="employeepatronymic"
+            placeholder="Отчество"
+            formControlName="patronymic"
+          />
+          
+        </div>
+
+        <div class="form-group">
+          <label for="employeeposition">Должность</label>
+          <select class="form-control" id="employeeposition" formControlName="position">
+            <option value="Агент">Агент</option>
+            <option value="Менеджер">Менеджер</option>
+            <option value="Бухгалтер">Бухгалтер</option>
+            <option value="Администратор">Администратор</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="employeebirth">Дата рождения</label>
+          <input
+            type="date"
+            class="form-control"
+            id="employeebirth"
+            formControlName="date_of_birth"
+          />
+          <div class="alert alert-danger" 
+          *ngIf="employeeForm.controls['date_of_birth'].invalid && employeeForm.controls['date_of_birth'].touched">
+              Не указана дата рождения
+          </div>
+        </div>
+
+        <!-- Photo -->
+
+        <div class="form-group">
+          <label for="employeelogin">Логин</label>
+          <input
+            type="text"
+            class="form-control"
+            id="employeelogin"
+            placeholder="Логин"
+            formControlName="login"
+          />
+          <div class="alert alert-danger" 
+          *ngIf="employeeForm.controls['login'].invalid && employeeForm.controls['login'].touched">
+              Не указан логин
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="employeepas">Пароль</label>
+          <input
+            type="password"
+            class="form-control"
+            id="employeepas"
+            placeholder="Пароль"
+            formControlName="password"
+          />
+          <div class="alert alert-danger" 
+          *ngIf="employeeForm.controls['password'].invalid && employeeForm.controls['password'].touched">
+              Не указан пароль
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+          <label for="employeeorg">Организация</label>
+          <input
+            type="number"
+            class="form-control"
+            id="employeeorg"
+            placeholder="1"
+            formControlName="organization"
+          />
+          <div class="alert alert-danger" 
+          *ngIf="employeeForm.controls['organization'].invalid && employeeForm.controls['organization'].touched">
+              Не указана организация
+          </div>
+        </div> -->
+
+        <div class="form-group">
+          <label for="employeeorganization">Организация</label>
+          <select class="form-control" id="employeeorganization" formControlName="organization">
+            <option value="1">Офис</option>
+            <option value="2">Филиал №1</option>
+            <option value="3">Филиал №2</option>
+          </select>
+        </div>
+            
+        <button class="btn btn-primary mr-4 mt-2" (click)="onSave()">
+          Сохранить
+        </button>
+        <button class="btn btn-danger mt-2" *ngIf="id != null" (click)="onDelete()">Удалить</button>
+              
+      </form>
+    </div>
+  </div> 
