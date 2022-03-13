@@ -19,12 +19,12 @@ export class EmployeesListComponent implements OnInit {
     this.retrieveEmployees();
   }
 
-  retrieveEmployees(): void {
+  async retrieveEmployees()  {
     this.employeeService.getAllEmployees()
       .subscribe(
         data => {
           this.empoloyees = data;
-          console.log(data);
+          // console.log(data);
         },
         error => {
           console.log(error);

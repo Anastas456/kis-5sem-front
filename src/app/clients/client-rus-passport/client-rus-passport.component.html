@@ -1,0 +1,103 @@
+<div class="container mt-2"> 
+    <div class="container-fluid">
+      <h3>Паспорт РФ</h3>
+      <form [formGroup]="rusPasForm">
+        
+        <!-- <div class="form-group">
+          <label for="client">Клиент</label>
+          <input
+            type="number"
+            min="1"
+            class="form-control"
+            id="client"
+            formControlName="client"
+          />
+          <div class="alert alert-danger" 
+            *ngIf="rusPasForm.controls['client'].invalid && rusPasForm.controls['client'].touched">
+              Не указан клиент
+          </div>
+        </div> -->
+        
+        <div class="form-group">
+            <label for="series">Серия</label>
+            <input
+              type="number"
+              min="1"
+              class="form-control"
+              id="series"
+              formControlName="passport_series"
+            />
+            <div class="alert alert-danger" 
+              *ngIf="rusPasForm.controls['passport_series'].invalid && rusPasForm.controls['passport_series'].touched">
+                Не указана серия
+            </div>
+          </div>
+        
+          <div class="form-group">
+            <label for="number">Номер</label>
+            <input
+              type="number"
+              min="1"
+              class="form-control"
+              id="number"
+              formControlName="passport_number"
+            />
+            <div class="alert alert-danger" 
+              *ngIf="rusPasForm.controls['passport_number'].invalid && rusPasForm.controls['passport_number'].touched">
+                Не указан номер
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="dateOfIssue">Дата выдачи</label>
+            <input
+              type="date"
+              class="form-control"
+              id="dateOfIssue"
+              formControlName="date_of_issue"
+            />
+            <div class="alert alert-danger" 
+            *ngIf="rusPasForm.controls['date_of_issue'].invalid && rusPasForm.controls['date_of_issue'].touched">
+                Не указана дата выдачи
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="expirationDate">Дата окончания срока действия</label>
+            <input
+              type="date"
+              class="form-control"
+              id="expirationDate"
+              formControlName="expiration_date"
+            />
+            <div class="alert alert-danger" 
+            *ngIf="rusPasForm.controls['expiration_date'].invalid && rusPasForm.controls['expiration_date'].touched">
+                Не указана дата окончания срока действия
+            </div>
+          </div>
+
+        
+        <div class="form-group">
+          <label for="issuingAuthority">Орган, выдавший документ</label>
+          <input
+            type="text"
+            class="form-control"
+            id="issuingAuthority"
+            placeholder="Орган, выдавший документ"
+            formControlName="issuing_authority"
+          />
+          <div class="alert alert-danger" 
+            *ngIf="rusPasForm.controls['issuing_authority'].invalid && rusPasForm.controls['issuing_authority'].touched">
+              Не указан орган, выдавший документ
+          </div>
+        </div>
+
+
+        <button class="btn btn-primary mr-4 mt-2" (click)="onSave()">
+          Сохранить
+        </button>
+              
+      </form>
+    </div>
+  </div> 
+

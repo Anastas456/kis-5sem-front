@@ -75,7 +75,7 @@ async onSave() {
     this.employeeService.updateEmployee(this.id, this.employeeForm.value)
       .subscribe(
         response => {
-          console.log(response);
+          // console.log(response);
           alert('Изменения сохранены');
         },
         error => {
@@ -86,7 +86,7 @@ async onSave() {
     this.employeeService.createEmployee(this.employeeForm.value)
       .subscribe(
         response => {
-          console.log(response);
+          // console.log(response);
           alert('Новый сотрудник создан');
         },
         error => {
@@ -101,7 +101,7 @@ async onDelete(){
   this.employeeService.deleteEmployee(this.id)
   .subscribe(
     response => {
-      console.log(response);
+      // console.log(response);
       this.router.navigate(['/employees']);
     },
     error => {

@@ -1,0 +1,18 @@
+<div class="container">
+  <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" 
+          [routerLink]="['./main-data', id]"
+          [routerLinkActive]="'active'"
+          [routerLinkActiveOptions]="{exact:true}"
+        >Основные</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" 
+          [routerLink]="['./rus-passport', id]"
+          [routerLinkActive]="'active'"
+          [routerLinkActiveOptions]="{exact:true}"
+        >Паспорт РФ</a>
+      </li>
+  </ul>
+</div>

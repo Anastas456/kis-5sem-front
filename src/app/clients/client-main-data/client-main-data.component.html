@@ -1,0 +1,102 @@
+<div class="container mt-2"> 
+    <div class="container-fluid">
+      <h3>Основные данные</h3>
+      <form [formGroup]="clientForm">
+        
+        <div class="form-group">
+            <label for="clientstatus">Статус</label>
+            <select class="form-control" id="clientstatus" formControlName="status">
+              <option value="Обычный">Обычный</option>
+              <option value="Привилегированный">Привилегированный</option>
+              <option value="VIP">VIP</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="clientsurname">Фамилия</label>
+          <input
+            type="text"
+            class="form-control"
+            id="clientsurname"
+            placeholder="Фамилия"
+            formControlName="surname"
+          />
+          <div class="alert alert-danger" 
+          *ngIf="clientForm.controls['surname'].invalid && clientForm.controls['surname'].touched">
+              Не указана фамилия
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="clientename">Имя</label>
+          <input
+            type="text"
+            class="form-control"
+            id="clientename"
+            placeholder="Имя"
+            formControlName="name"
+          />
+          <div class="alert alert-danger" 
+            *ngIf="clientForm.controls['name'].invalid && clientForm.controls['name'].touched">
+              Не указано имя
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="clientpatronymic">Отчество</label>
+          <input
+            type="text"
+            class="form-control"
+            id="clientpatronymic"
+            placeholder="Отчество"
+            formControlName="patronymic"
+          />
+          
+        </div>
+
+        <div class="form-group">
+          <label for="clientsex">Пол</label>
+          <select class="form-control" id="clientsex" formControlName="sex">
+            <option value="М">Мужской</option>
+            <option value="Ж">Женский</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="employeebirth">Дата рождения</label>
+          <input
+            type="date"
+            class="form-control"
+            id="employeebirth"
+            formControlName="date_of_birth"
+          />
+          <div class="alert alert-danger" 
+          *ngIf="clientForm.controls['date_of_birth'].invalid && clientForm.controls['date_of_birth'].touched">
+              Не указана дата рождения
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="clientbirthplace">Место рождения</label>
+          <input
+            type="text"
+            class="form-control"
+            id="clientbirthplace"
+            placeholder="Место рождения"
+            formControlName="place_of_birth"
+          />
+          <div class="alert alert-danger" 
+          *ngIf="clientForm.controls['place_of_birth'].invalid && clientForm.controls['place_of_birth'].touched">
+              Не указано место рождения
+          </div>
+        </div>
+
+            
+        <button class="btn btn-primary mr-4 mt-2" (click)="onSave()">
+          Сохранить
+        </button>
+        <!-- <button class="btn btn-danger mt-2" *ngIf="id != null" (click)="onDelete()">Удалить</button> -->
+              
+      </form>
+    </div>
+  </div> 
