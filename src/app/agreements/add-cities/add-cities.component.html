@@ -1,0 +1,42 @@
+<div class="container mt-2"> 
+    <div class="container-fluid">
+      <h3>Добавление городов посещения</h3>
+      <form [formGroup]="visitingCitiesForm">
+        
+        <div class="form-group mt-3">
+            <label for="agreementId">Предварительное соглашение</label>
+            <input
+              type="number"
+              min="1"
+              class="form-control"
+              id="agreementId"
+              formControlName="preliminary_agreement"
+            />
+            <div class="alert alert-danger" 
+              *ngIf="visitingCitiesForm.controls['preliminary_agreement'].invalid && visitingCitiesForm.controls['preliminary_agreement'].touched">
+                Не указано предварительное соглашение
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="city">Город посещения</label>
+            <select class="form-control" id="city" formControlName="city">
+             
+              <ng-container *ngFor="let item of cities">
+                <option [value]="item.id">{{item.city_name}}</option>
+              </ng-container>
+            
+            </select>
+        </div>
+
+            
+        <button class="btn btn-primary mr-4 mt-3" [disabled]="visitingCitiesForm.invalid" (click)="onSave()">
+          Сохранить
+        </button>
+        
+              
+      </form>
+    </div>
+  </div> 
+
+

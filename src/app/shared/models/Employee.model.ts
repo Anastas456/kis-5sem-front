@@ -10,3 +10,8 @@ export interface Employee{
     password: String;
     organization: Number;
 }
+
+export interface Organization{
+    id: Number;
+    organization_name: String;
+}

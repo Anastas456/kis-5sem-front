@@ -1,0 +1,50 @@
+<div class="container mt-2">
+    <h3>Предварительные соглашения</h3>
+    
+    <button class="btn btn-success mt-3"
+    (click)="onAddAgreement()">              
+        Добавить предварительное соглашение
+    </button>
+
+    <div class="table-responsive">
+      <table class="table">
+          <thead>
+            <tr>
+            <!-- <th scope="col">Id</th> -->
+            <th scope="col">Дата соглашения</th>
+            <th scope="col">Организация</th>
+            <th scope="col">Сотрудник</th>
+            <th scope="col">Страна посещения</th>
+            <th scope="col">Клиент</th>
+            <th scope="col">Количество участников поездки</th>
+            <th scope="col">Дата начала поездки</th>
+            <th scope="col">Дата окончания поездки</th>
+            <th scope="col">Посещаемые города</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of agreements">
+            <!-- <td>{{item.id}}</td> -->
+            <td>{{item.date_of_agreement | date:"dd.MM.yy hh:mm:ss"}}</td>
+            <td>{{item.organization}}</td>
+            <td>{{item.employee}}</td>
+            <td>{{item.country_of_visit}}</td>
+            <td>{{item.client}}</td>
+            <td>{{item.number_of_trip_members}}</td>
+            <td>{{item.start_date_of_trip | date:"dd.MM.yy"}}</td>
+            <td>{{item.end_date_of_trip | date:"dd.MM.yy"}}</td>
+             <td>
+                 <button class="btn btn-primary"
+                    (click)="onSeeVisitingCities(item.id)">
+                    Смотреть
+                 </button>
+             </td>   
+              
+
+            </tr>
+          </tbody>
+      </table> 
+    </div>
+  </div> 
+
