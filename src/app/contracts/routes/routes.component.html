@@ -1,0 +1,26 @@
+<div class="container mt-2">
+    <h3>Маршрут</h3>
+
+    <div class="table-responsive">
+      <table class="table">
+          <thead>
+            <tr>
+            <th scope="col">Договор</th>
+            <th scope="col">Бронь отеля</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of routes">
+            <td>{{item.contract}}</td>
+            <td>{{item.hotel_reservation}}</td>
+                      
+
+            </tr>
+          </tbody>
+      </table> 
+    </div>
+  </div> 
+
+
+

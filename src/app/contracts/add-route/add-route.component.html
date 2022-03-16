@@ -1,0 +1,45 @@
+<div class="container mt-2"> 
+    <div class="container-fluid">
+        <h3>Добавление маршрута</h3>
+
+        <form [formGroup]="routeForm">
+        
+        <div class="form-group mt-3">
+            <label for="contract">Договор</label>
+            <input
+              type="number"
+              min="1"
+              class="form-control"
+              id="contract"
+              formControlName="contract"
+            />
+            <div class="alert alert-danger" 
+              *ngIf="routeForm.controls['contract'].invalid && routeForm.controls['contract'].touched">
+                Не указан договор
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="hotel_reservation">Бронь в отеле</label>
+            <select class="form-control" id="hotel_reservation" formControlName="hotel_reservation">
+             
+              <ng-container *ngFor="let item of reservations">
+                <option [value]="item.id">{{item.hotel}}</option>
+              </ng-container>
+            
+            </select>
+        </div>
+
+            
+        <button class="btn btn-primary mr-4 mt-3" [disabled]="routeForm.invalid" (click)="onSave()">
+          Сохранить
+        </button>
+        
+              
+      </form>
+    </div>
+  </div> 
+
+
+
+

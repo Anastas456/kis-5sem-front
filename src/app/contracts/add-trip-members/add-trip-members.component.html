@@ -1,0 +1,49 @@
+<div class="container mt-2"> 
+    <div class="container-fluid">
+        <h3>Добавление участников поездки</h3>
+
+        <button class="btn btn-success mt-3"
+            (click)="onAddRoute()">              
+            Добавить марщрут
+        </button>
+
+        <form [formGroup]="tripMemberForm">
+        
+        <div class="form-group mt-3">
+            <label for="contract">Договор</label>
+            <input
+              type="number"
+              min="1"
+              class="form-control"
+              id="contract"
+              formControlName="contract"
+            />
+            <div class="alert alert-danger" 
+              *ngIf="tripMemberForm.controls['contract'].invalid && tripMemberForm.controls['contract'].touched">
+                Не указан договор
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="client">Клиент</label>
+            <select class="form-control" id="client" formControlName="client">
+             
+              <ng-container *ngFor="let item of clients">
+                <option [value]="item.id">{{item.surname}}</option>
+              </ng-container>
+            
+            </select>
+        </div>
+
+            
+        <button class="btn btn-primary mr-4 mt-3" [disabled]="tripMemberForm.invalid" (click)="onSave()">
+          Сохранить
+        </button>
+        
+              
+      </form>
+    </div>
+  </div> 
+
+
+

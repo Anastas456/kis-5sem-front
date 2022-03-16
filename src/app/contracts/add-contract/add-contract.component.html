@@ -1,0 +1,117 @@
+<div class="container mt-2"> 
+    <div class="container-fluid">
+      <h3>Добавление договора</h3>
+      <form [formGroup]="contractForm">
+        
+        <div class="form-group mt-3">
+            <label for="preliminary_agreement">Предварительное соглашение</label>
+            <select class="form-control" id="preliminary_agreement" formControlName="preliminary_agreement">
+             
+              <ng-container *ngFor="let item of agreements">
+                <option [value]="item.id" >{{item.date_of_agreement | date:"dd.MM.yy hh:mm:ss"}}</option>
+              </ng-container>
+            
+            </select>
+
+            <div class="alert alert-danger" 
+            *ngIf="contractForm.controls['preliminary_agreement'].invalid && contractForm.controls['preliminary_agreement'].touched">
+                Не указано предварительное соглашение
+            </div>
+
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="organization">Организация</label>
+            <select class="form-control" id="organization" formControlName="organization">
+             
+              <ng-container *ngFor="let item of organizations">
+                <option [value]="item.id" >{{item.organization_name}}</option>
+              </ng-container>
+            
+            </select>
+
+            <div class="alert alert-danger" 
+            *ngIf="contractForm.controls['organization'].invalid && contractForm.controls['organization'].touched">
+                Не указана организация
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="employee">Сотрудник</label>
+            <select class="form-control" id="employee" formControlName="agent">
+             
+              <ng-container *ngFor="let item of employees">
+                <option [value]="item.id">{{item.surname}} {{item.name}}</option>
+              </ng-container>
+            
+            </select>
+
+            <div class="alert alert-danger" 
+            *ngIf="contractForm.controls['agent'].invalid && contractForm.controls['agent'].touched">
+                Не указан сотрудник
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="client">Клиент</label>
+            <select class="form-control" id="client" formControlName="client">
+             
+              <ng-container *ngFor="let item of clients">
+                <option [value]="item.id">{{item.surname}} {{item.name}}</option>
+              </ng-container>
+            
+            </select>
+
+            <div class="alert alert-danger" 
+            *ngIf="contractForm.controls['client'].invalid && contractForm.controls['client'].touched">
+                Не указан клиент
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="start">Дата начала поездки</label>
+            <input
+              type="date"
+              class="form-control"
+              id="start"
+              formControlName="start_date_of_trip"
+            />
+            <div class="alert alert-danger" 
+            *ngIf="contractForm.controls['start_date_of_trip'].invalid && contractForm.controls['start_date_of_trip'].touched">
+                Не указана дата начала поездки
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="end">Дата окончания поездки</label>
+            <input
+              type="date"
+              class="form-control"
+              id="end"
+              formControlName="end_date_of_trip"
+            />
+            <div class="alert alert-danger" 
+            *ngIf="contractForm.controls['end_date_of_trip'].invalid && contractForm.controls['end_date_of_trip'].touched">
+                Не указана дата окончания поездки
+            </div>
+
+            <div class="alert alert-danger" 
+            *ngIf="normDates == false">
+                Дата окончания раньше даты начала поездки
+            </div>
+            
+        </div>
+       
+        
+        
+            
+        <button class="btn btn-primary mr-4 mt-3" [disabled]="contractForm.invalid" (click)="onSave()">
+          Сохранить
+        </button>
+        
+              
+      </form>
+    </div>
+  </div> 
+
+
