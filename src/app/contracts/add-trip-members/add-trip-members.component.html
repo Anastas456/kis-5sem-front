@@ -4,7 +4,7 @@
 
         <button class="btn btn-success mt-3"
             (click)="onAddRoute()">              
-            Добавить марщрут
+            Добавить маршрут
         </button>
 
         <form [formGroup]="tripMemberForm">
@@ -33,6 +33,11 @@
               </ng-container>
             
             </select>
+
+            <div class="alert alert-danger" 
+              *ngIf="tripMemberForm.controls['client'].invalid && tripMemberForm.controls['client'].touched">
+                Не указан клиент
+            </div>
         </div>
 
             

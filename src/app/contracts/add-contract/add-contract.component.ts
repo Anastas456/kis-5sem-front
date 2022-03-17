@@ -42,18 +42,24 @@ export class AddContractComponent implements OnInit {
 
     this.getAllAgreements();
 
-    this.contractForm.valueChanges.subscribe(value => {
-      if (value.preliminary_agreement !== null && value.preliminary_agreement !== undefined){
-        this.getAgreement(value.preliminary_agreement);
-      }
+    // this.contractForm.valueChanges.subscribe(value => {
+    //   if (value.preliminary_agreement !== null && value.preliminary_agreement !== undefined){
+    //     this.getAgreement(value.preliminary_agreement);
+    //   }
+    // });
+    this.contractForm.get('preliminary_agreement')?.valueChanges.subscribe((value) => {
+      this.getAgreement(value);
     });
 
     this.getOrganizations();
 
-    this.contractForm.valueChanges.subscribe(value => {
-      if (value.organization !== null && value.organization !== undefined){
-        this.getEmployees();
-      }
+    // this.contractForm.valueChanges.subscribe(value => {
+    //   if (value.organization !== null && value.organization !== undefined){
+    //     this.getEmployees();
+    //   }
+    // });
+    this.contractForm.get('organization')?.valueChanges.subscribe((value) => {
+      this.getEmployees(value);
     });
 
     this.getClients();
@@ -87,18 +93,19 @@ export class AddContractComponent implements OnInit {
         let agreement=this.agreementService.getAgreement(id);
         this.agreement= await agreement;
         // console.log(this.agreement);
+        
       }
       catch(err){
         console.error(err);
       }
 
-      // this.contractForm.patchValue({
-      //   organization: this.agreement?.organization,
-      //   agent: this.agreement?.employee,
-      //   client: this.agreement?.client,
-      //   start_date_of_trip: this.agreement?.start_date_of_trip,
-      //   end_date_of_trip: this.agreement?.end_date_of_trip
-      // })
+      this.contractForm.patchValue({
+        organization: this.agreement?.organization,
+        agent: this.agreement?.employee,
+        client: this.agreement?.client,
+        start_date_of_trip: this.agreement?.start_date_of_trip,
+        end_date_of_trip: this.agreement?.end_date_of_trip
+      })
   }
 
   getOrganizations(){
@@ -114,8 +121,8 @@ export class AddContractComponent implements OnInit {
       );
   }
 
-  getEmployees(){
-    this.agreementService.getEmployeesByOrganization(this.contractForm.value.organization)
+  getEmployees(organization: any){
+    this.agreementService.getEmployeesByOrganization(organization)
       .subscribe(
         data => {
           this.employees = data;

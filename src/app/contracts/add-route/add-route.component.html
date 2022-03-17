@@ -24,10 +24,15 @@
             <select class="form-control" id="hotel_reservation" formControlName="hotel_reservation">
              
               <ng-container *ngFor="let item of reservations">
-                <option [value]="item.id">{{item.hotel}}</option>
+                <option [value]="item.id">{{item.hotel}} {{item.room_type}} {{item.nutrition}}</option>
               </ng-container>
             
             </select>
+
+            <div class="alert alert-danger" 
+              *ngIf="routeForm.controls['hotel_reservation'].invalid && routeForm.controls['hotel_reservation'].touched">
+                Не указана бронь
+            </div>
         </div>
 
             
