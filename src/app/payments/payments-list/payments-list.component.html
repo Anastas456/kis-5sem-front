@@ -1,0 +1,38 @@
+<div class="container mt-2">
+    <h3>Оплаты</h3>
+    
+    <button class="btn btn-success mt-3"
+    (click)="onAddPayment()">              
+        Добавить оплату
+    </button>
+
+    <div class="table-responsive">
+      <table class="table">
+          <thead>
+            <tr>
+            <!-- <th scope="col">Id</th> -->
+            <th scope="col">Дата оплаты</th>
+            <th scope="col">Организация</th>
+            <th scope="col">Договор</th>
+            <th scope="col">Сумма в рублях</th>
+            <!-- <th scope="col">Валюта</th> -->
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of payments">
+            <!-- <td>{{item.id}}</td> -->
+            <td>{{item.payment_date | date:"dd.MM.yy hh:mm:ss"}}</td>
+            <td>{{item.organization}}</td>
+            <td>{{item.contract}}</td>
+            <td>{{item.amount_in_rubles}}</td>
+            <!-- <td>{{item.currency}}</td> -->
+            
+            </tr>
+          </tbody>
+      </table> 
+    </div>
+  </div> 
+
+
+

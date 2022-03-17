@@ -1,0 +1,64 @@
+<div class="container mt-2"> 
+    <div class="container-fluid">
+      <h3>Добавление оплаты</h3>
+      <form [formGroup]="paymentForm">
+        
+        <div class="form-group mt-3">
+            <label for="organization">Организация</label>
+            <select class="form-control" id="organization" formControlName="organization">
+             
+              <ng-container *ngFor="let item of organizations">
+                <option [value]="item.id" >{{item.organization_name}}</option>
+              </ng-container>
+            
+            </select>
+
+            <div class="alert alert-danger" 
+              *ngIf="paymentForm.controls['organization'].invalid && paymentForm.controls['organization'].touched">
+                Не указана организация
+            </div>
+
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="contract">Договор</label>
+            <select class="form-control" id="contract" formControlName="contract">
+             
+              <ng-container *ngFor="let item of contracts">
+                <option [value]="item.id">{{item.contract_date}}</option>
+              </ng-container>
+            
+            </select>
+
+            <div class="alert alert-danger" 
+              *ngIf="paymentForm.controls['contract'].invalid && paymentForm.controls['contract'].touched">
+                Не указан договор
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="amount_in_rubles">Сумма в рублях</label>
+            <input
+              type="number"
+              min="1"
+              class="form-control"
+              id="amount_in_rubles"
+              formControlName="amount_in_rubles"
+            />
+            <div class="alert alert-danger" 
+              *ngIf="paymentForm.controls['amount_in_rubles'].invalid && paymentForm.controls['amount_in_rubles'].touched">
+                Не указана сумма
+            </div>
+        </div>
+
+            
+         <button class="btn btn-primary mr-4 mt-3"  (click)="onSave()"> <!--[disabled]="paymentForm.invalid" -->
+          Сохранить
+        </button>
+        
+              
+      </form>
+    </div>
+  </div> 
+
+
