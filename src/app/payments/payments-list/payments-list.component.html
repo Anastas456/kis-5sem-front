@@ -1,10 +1,18 @@
 <div class="container mt-2">
     <h3>Оплаты</h3>
     
-    <button class="btn btn-success mt-3"
-    (click)="onAddPayment()">              
-        Добавить оплату
-    </button>
+    <div class="container btn-block">
+      <button class="btn btn-success mt-3"
+        (click)="onAddPayment()">              
+          Добавить оплату
+      </button>
+
+      <button class="btn btn-success mt-3"
+      (click)="onCurrency()">              
+          Валюта
+      </button>
+    </div>
+    
 
     <div class="table-responsive">
       <table class="table">
@@ -15,7 +23,7 @@
             <th scope="col">Организация</th>
             <th scope="col">Договор</th>
             <th scope="col">Сумма в рублях</th>
-            <!-- <th scope="col">Валюта</th> -->
+            <th scope="col">Валюта</th>
               
             </tr>
           </thead>
@@ -26,7 +34,7 @@
             <td>{{item.organization}}</td>
             <td>{{item.contract}}</td>
             <td>{{item.amount_in_rubles}}</td>
-            <!-- <td>{{item.currency}}</td> -->
+            <td>{{item.currency}}</td>
             
             </tr>
           </tbody>

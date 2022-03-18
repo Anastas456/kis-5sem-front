@@ -6,13 +6,15 @@ import { PaymentsComponent } from './payments.component';
 import { PaymentsListComponent } from './payments-list/payments-list.component';
 import { AddPaymentComponent } from './add-payment/add-payment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CurrencyListComponent } from './currency-list/currency-list.component';
 
 
 @NgModule({
   declarations: [
     PaymentsComponent,
     PaymentsListComponent,
-    AddPaymentComponent
+    AddPaymentComponent,
+    CurrencyListComponent
   ],
   imports: [
     CommonModule,

@@ -21,5 +21,13 @@ export class PaymentServiceService {
     return this.http.get(`http://127.0.0.1:8000/api/filtered_contracts?organization=${organization}`)
   }
 
+  getAllCurrency(): Observable<any>{
+    return this.http.get('http://127.0.0.1:8000/api/lt_currency/');
+  }
+
+  updateCurrency(call: any): Observable<any>{
+    return this.http.post('http://127.0.0.1:8000/api/currency/', call)
+  }
+
 
 }

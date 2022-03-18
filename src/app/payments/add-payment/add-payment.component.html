@@ -51,6 +51,22 @@
             </div>
         </div>
 
+
+        <div class="form-group mt-3">
+          <label for="currency">Валюта</label>
+          <select class="form-control" id="currency" formControlName="currency">
+           
+            <ng-container *ngFor="let item of currencies">
+              <option [value]="item.code">{{item.code}} {{item.name}}</option>
+            </ng-container>
+
+            <option [value]="null">-</option>
+          
+          </select>
+
+        
+      </div>
+
             
          <button class="btn btn-primary mr-4 mt-3"  (click)="onSave()"> <!--[disabled]="paymentForm.invalid" -->
           Сохранить

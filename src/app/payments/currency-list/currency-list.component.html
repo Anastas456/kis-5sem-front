@@ -1,0 +1,35 @@
+<div class="container mt-2">
+    <h3>Валюты</h3>
+
+    <button class="btn btn-success mt-3"
+        (click)="onARefreshCurrency()">              
+          Обновить значения
+    </button>
+    
+    <div class="table-responsive">
+      <table class="table">
+          <thead>
+            <tr>
+            
+            <th scope="col">Код</th>
+            <th scope="col">Название</th>
+            <th scope="col">Курс</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of currencies">
+        
+            <td>{{item.code}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.rate}}</td>
+            
+            </tr>
+          </tbody>
+      </table> 
+    </div>
+  </div> 
+
+
+
+

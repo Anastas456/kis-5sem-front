@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Contract } from 'src/app/shared/models/Contract.model';
 import { Organization } from 'src/app/shared/models/Employee.model';
+import { Currency } from 'src/app/shared/models/Payment.model';
 import { AgreementServiceService } from 'src/app/shared/services/agreement-service.service';
 import { PaymentServiceService } from 'src/app/shared/services/payment-service.service';
 
@@ -16,6 +17,7 @@ export class AddPaymentComponent implements OnInit {
   paymentForm!:FormGroup;
   contracts?: Contract[];
   organizations?: Organization[];
+  currencies?: Currency[];
 
   constructor(private paymentService: PaymentServiceService,
     private router: Router,
@@ -33,6 +35,8 @@ export class AddPaymentComponent implements OnInit {
     this.paymentForm.get('organization')?.valueChanges.subscribe((value) => {
       this.getContracts(value);
     });
+
+    this.getCurrency();
   }
 
 
@@ -53,6 +57,20 @@ export class AddPaymentComponent implements OnInit {
       .subscribe(
         data => {
           this.contracts = data;
+          // console.log(data);
+          
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+
+  getCurrency(){
+    this.paymentService.getAllCurrency()
+      .subscribe(
+        data => {
+          this.currencies = data;
           // console.log(data);
           
         },

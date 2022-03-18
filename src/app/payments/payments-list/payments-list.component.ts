@@ -35,4 +35,8 @@ export class PaymentsListComponent implements OnInit {
     this.router.navigate(['payments/add-payment']);
   }
 
+  onCurrency(){
+    this.router.navigate(['payments/currency']);
+  }
+
 }

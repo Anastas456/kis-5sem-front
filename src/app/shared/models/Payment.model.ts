@@ -6,3 +6,9 @@ export interface Payment{
     amount_in_rubles: number;
     currency: number;
 }
+
+export interface Currency{
+    code:number;
+    name: String;
+    rate: number;
+}
